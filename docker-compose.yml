@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  container:
+    build: ./container
+    volumes:
+      - core:/app/core
+    depends_on:
+      - core
+
+  core:
+    build: ./core
+    volumes:
+      - core:/app
+
+volumes:
+  core:
+    driver: 'local'
